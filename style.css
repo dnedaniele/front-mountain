@@ -26,6 +26,11 @@ body {
 .text-buy {
   background-color: whitesmoke;
 }
+
+.hypelink{
+  font-weight: bold;
+  color: rgb(23, 53, 23);
+}
 footer {
   background-color: whitesmoke;
 }

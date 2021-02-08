@@ -1,13 +1,8 @@
-// in the container lets add a h1 with hello
-const heading = document.createElement("h1");
 
-heading.innerHTML = "hello";
-
-document.querySelector("#container").appendChild(heading);
 
 // Object factory: product
 
-function Product(name, price, quantity) {
+/* function Product(name, price, quantity) {
   this.name = name;
   this.price = price;
   this.quantity = quantity;
@@ -44,3 +39,4 @@ const listProducts = [bagPack,shoes, tShirt, bagPackTwo, shoesTwo, tShirtTwo, ba
 
 // map
 listProducts.forEach(prod => (prod.display()))
+ */
