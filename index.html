@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wandern Wonder</title>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-B6J3M8V3NP"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-B6J3M8V3NP");
+
+      // .log
+      // .info
+      // .warn , .error
+      // tracking a buy
+      function buyTracker(productName) {
+        console.info("event triggered",  {
+          event_category: "bbb",
+          event_label: "ccc",
+          product_name: productName}
+        );
+        gtag("event", "product_bought", {
+          event_category: "purchase",
+          event_label: "ccc",
+          product_name: productName
+        });
+      }
+
+      // listen to the url and look for Query parameters
+      // send to write them to cookies
+      function generateId() {
+        return parseInt(Math.random() * 1000000); // 123123123123123
+      }
+      //Get User ID
+      function getUserId() {
+        console.log(document.cookie);
+
+        const cookieValue = document.cookie
+          .split("; ")
+          .find((row) => row.startsWith("user_id")); // "user=123123"
+
+        let userId = null;
+    // New User
+        if (cookieValue === null || cookieValue === undefined) {
+
+          userId = generateId();
+          document.cookie = "user_id=" + userId;
+    //Existing User - he has already a cookie
+        } else {
+          userId = cookieValue.split("=")[1];
+        }
+        return userId;
+      }
+      getUserId();
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- NAV BAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarTogglerDemo01"
+        aria-controls="navbarTogglerDemo01"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+        <a class="navbar-brand" href="#">Wandern Wonder</a>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="#"
+              >Home <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./about.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contacts</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input
+            class="form-control mr-sm-2"
+            type="search"
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+      </div>
+    </nav>
+    <br />
+
+    <div>
+      <!-- CARD 1 and 2 -->
+      <div class="div-container">
+        <!-- CARD1 -->
+        <div class="card product" style="width: 18rem">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/6122RIZcFNL._AC_UX500_.jpg"
+            class="card-img-top"
+            alt="shoes"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Hiking Shoes</h5>
+            <p class="card-text">
+              Salewa Men's Ms MTN Trainer GTX Trekking & Hiking
+            </p>
+            <a href="./buyshoes.html" class="btn btn-primary">Buy</a>
+          </div>
+        </div>
+
+        <!-- CARD2 -->
+
+        <div class="card product" style="width: 18rem">
+          <img
+            src="https://www.hervis.de/medias/sys_master/images/images/hf5/ha1/13232730636318/Mammut-Lithium-Speed-20-2673809-00-222816.jpg"
+            class="card-img-top"
+            alt="backpack"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Backpack</h5>
+            <p class="card-text">
+              Lithium Speed 20 L The smallest backpack in the Lithium family is
+              a real multi-talent.
+            </p>
+            <button onclick="buyTracker()">Buy</button>
+            <button onclick="gtag('send', 'event', [buyProduct], [click]);">Buy GA</button>
+            <a href="./buybackpack.html" class="btn btn-primary">Buy</a>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- CARD 1 and 2 -->
+      <div class="div-container">
+        <!-- CARD1 -->
+        <div class="card product" style="width: 18rem">
+          <img
+            src="https://i5.walmartimages.com/asr/814f13fc-721a-491a-a26c-a82ffc75887f.db3429aeaf7e0113a0df2971c88952ca.jpeg"
+            class="card-img-top"
+            alt="pants"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Trousers</h5>
+            <p class="card-text">
+              Cathery Men's Outdoor Pants Waterproof Walking Hiking Trousers.
+            </p>
+            <a href="buypants.html" class="btn btn-primary">Buy</a>
+            <button onclick="gtag('event', 'click_buy_pants');">Buy GTAG</button>
+          </div>
+        </div>
+
+        <!-- CARD2 -->
+
+        <div class="card product" style="width: 18rem">
+          <img
+            src="https://images-na.ssl-images-amazon.com/images/I/91TKA13a4hL._SL1500_.jpg"
+            class="card-img-top"
+            alt="hoodie"
+          />
+          <div class="card-body">
+            <h5 class="card-title">Hoodie</h5>
+            <p class="card-text">
+              Mount Rainier Washington Sunset Hiking Pullover Hoodie-fa
+            </p>
+            <a href="./buyhoodie.html" class="btn btn-primary">Buy</a>
+            <button onclick="gtag('event', 'click_buy_Hoodie');">Buy GTAG</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>Copyright - Daniele</footer>
+
+    <script src="index.js"></script>
+  </body>
+</html>

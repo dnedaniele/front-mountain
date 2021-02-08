@@ -1,0 +1,31 @@
+body {
+  text-align: center;
+  margin: 10px;
+  justify-content: center;
+  background-image: url("https://images.photowall.com/products/58341/foggy-forest-4.jpg?h=699&q=85");
+}
+
+.product {
+  margin-left: 15px;
+  border-style: solid;
+  border-color: rgb(35, 54, 35);
+}
+
+.div-container {
+  display: flex;
+  width: 80%;
+  padding: 2% 10% 2% 10%;
+  justify-content: center;
+}
+
+.div-buy {
+  display: flex;
+  width: 40%;
+}
+
+.text-buy {
+  background-color: whitesmoke;
+}
+footer {
+  background-color: whitesmoke;
+}
