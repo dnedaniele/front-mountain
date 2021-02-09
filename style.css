@@ -27,10 +27,14 @@ body {
   background-color: whitesmoke;
 }
 
-.hypelink{
+.hypelink {
   font-weight: bold;
   color: rgb(23, 53, 23);
 }
 footer {
   background-color: whitesmoke;
+}
+
+img {
+  padding: 10px;
 }

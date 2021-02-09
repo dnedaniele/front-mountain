@@ -1,69 +1,73 @@
-function renderSingleProduct(product){
+function renderSingleProduct(product) {
   //div-container
-const divContainer = document.createElement("div");
-divContainer.classList.add("div-container");
- 
-// card-product
-const cardProduct = document.createElement("div");
-cardProduct.classList.add("card product");
-cardProduct.style.width = "width: 18rem";
+  const divContainer = document.createElement("div");
+  divContainer.classList.add("div-container");
 
-//IMG
-const img = document.createElement("img");
-img.classList.add("card-img-top");
-img.alt = "shoes";
-img.src = product.img;
+  // card-product
+  const cardProduct = document.createElement("div");
+  cardProduct.classList.add("card");
+  cardProduct.classList.add("product");
+  cardProduct.style.width = "width: 18rem";
 
-//card text
-const cardText = document.createElement("div");
-cardText.classList.add("card-body");
+  //IMG
+  const img = document.createElement("img");
+  img.classList.add("card-img-top");
+  img.alt = "shoes";
+  img.src = product.img;
 
-//product Name
-const productName = document.createElement("h5");
-productName.classList.add("card-body");
-productName.innerHTML = product.name;
+  //card text
+  const cardText = document.createElement("div");
+  cardText.classList.add("card-body");
 
-//product description
-const productDescription = document.createElement("p");
-productDescription.classList.add("card-text");
-productDescription.innerHTML = product.description; 
+  //product Name
+  const productName = document.createElement("h5");
+  productName.classList.add("card-body");
+  productName.innerHTML = product.name;
 
-//Details Buttons
-const detailsButton = document.createElement("a");
-detailsButton.classList.add("btn");
-detailsButton.classList.add("btn-primary");
-detailsButton.href = `***`;                   // fill in URL `./single-product-page.html?productId=${product._id}`;
-detailsButton.innerHTML = "Product Details";
- 
-//append all
-cardText.appendChild(productName);
-cardText.appendChild(productDescription);
-cardText.appendChild(detailsButton);
+  //product description
+  const productDescription = document.createElement("p");
+  productDescription.classList.add("card-text");
+  productDescription.innerHTML = product.description;
 
-cardProduct.appendChild(img);
-cardProduct.appendChild(cardText);
+  //price
+  const price = document.createElement("h7");
+  price.classList.add("card-body");
+  price.innerHTML = "Price: " + product.price + " €";
 
-divContainer.appendChild(cardProduct); 
+  //Details Buttons
+  const detailsButton = document.createElement("a");
+  detailsButton.classList.add("btn");
+  detailsButton.classList.add("btn-primary");
+  detailsButton.href = `***`; // fill in URL `./single-product-page.html?productId=${product._id}`;
+  detailsButton.innerHTML = "Product Details";
 
-document.getElementById("test").appendChild(divContainer); 
-};
+  //append all
+  cardText.appendChild(productName);
+  cardText.appendChild(productDescription);
+  cardText.appendChild(detailsButton);
+  cardText.appendChild(price); 
 
+  cardProduct.appendChild(img);
+  cardProduct.appendChild(cardText);
 
+  divContainer.appendChild(cardProduct);
 
-function renderProductList(list){
+  document.getElementById("test").appendChild(divContainer);
+}
+
+function renderProductList(list) {
   list.forEach(renderSingleProduct);
 }
 
-const getProduct = async()=>{
-  const response = await fetch(`****`);
+const getProduct = async () => {
+  const response = await fetch(`http://localhost:3500/shop-list`);
   const data = await response.json();
   console.log(data);
 
   renderProductList(data);
-}
+};
 
-getProduct(); 
-
+getProduct();
 
 // Object factory: product
 
