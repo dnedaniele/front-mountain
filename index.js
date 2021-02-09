@@ -1,3 +1,44 @@
+function renderSingleProduct(product){
+  //div-container
+const divContainer = document.createElement("div");
+divContainer.classList.add("div-container");
+ 
+// card-product
+const divCard = document.createElement("div");
+divCard.classList.add("card product");
+divCard.style.width = "width: 18rem";
+
+//IMG
+const img = document.createElement("img");
+img.classList.add("card-img-top");
+img.alt = "shoes";
+img.src = product.img;
+
+//card text
+const cardText = docdocument.createElement("div");
+cardText.classList.add("card-body");
+
+//product Name
+const productName = document.createElement("h5");
+productName.classList.add("card-body");
+productName.innerHTML = product.name;
+
+//product description
+const productDescription = document.createElement("p");
+productDescription.classList.add("card-text");
+productDescription.innerHTML = product.description; 
+
+//Details Buttons
+const detailsButton = document.createElement("a");
+detailsButton.classList.add("btn");
+detailsButton.classList.add("btn-primary");
+detailsButton.href = `***`;                   // fill in URL
+detailsButton.innerHTML = "Product Details";
+ 
+//append all
+
+
+};
 
 
 // Object factory: product
@@ -17,7 +58,7 @@
  
       container.appendChild(nameTag);
       container.appendChild(priceTag);
-    document.querySelector("#product-list").appendChild(container);
+    document.querySelector(".div-container").appendChild(container); 
 
 
 
