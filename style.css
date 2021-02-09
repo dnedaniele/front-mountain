@@ -13,9 +13,9 @@ body {
 
 .div-container {
   display: flex;
-  width: 80%;
-  padding: 2% 10% 2% 10%;
-  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .div-buy {
@@ -37,4 +37,9 @@ footer {
 
 img {
   padding: 10px;
+}
+
+.price{
+  flex-direction: column;
+  display: flex; 
 }

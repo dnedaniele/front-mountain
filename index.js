@@ -18,6 +18,7 @@ function renderSingleProduct(product) {
   //card text
   const cardText = document.createElement("div");
   cardText.classList.add("card-body");
+  cardText.classList.add("price");
 
   //product Name
   const productName = document.createElement("h5");
@@ -31,7 +32,7 @@ function renderSingleProduct(product) {
 
   //price
   const price = document.createElement("h7");
-  price.classList.add("card-body");
+  price.classList.add("card-text");
   price.innerHTML = "Price: " + product.price + " €";
 
   //Details Buttons
